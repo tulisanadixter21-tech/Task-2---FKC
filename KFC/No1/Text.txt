@@ -1,0 +1,62 @@
+1.(pic branch-no1 and staff-no1)
+
+*picture
+
+2. INSERT INTO staff VALUES ('S3','Jean',300);
+
+-Yes, it was inserted
+
+3. DELETE FROM staff WHERE Sno='S3';
+
+-Yes, it shows it was successful
+
+4. ALTER TABLE staff ADD CONSTRAINT staff_branch FOREIGN KEY (Bno)
+REFERENCES branch(Bno)
+ON DELETE CASCADE
+ON UPDATE NO ACTION;
+
+*picture
+
+5. INSERT INTO staff VALUES ('S3','Jean',300);
+
+-No, Cannot add or update a child row: a foreign key constraint fails
+
+6. UPDATE staff SET Bno = 300 WHERE Sno='2';
+
+-No,Cannot add or update a child row: a foreign key constraint fails
+
+7. INSERT INTO branch VALUES (300,'Tagum');
+
+-Yes, it shows it was successful
+
+8. INSERT INTO staff VALUES ('S3','Jean',300);
+
+-Yes, it shows it was successful
+
+9. DELETE FROM branch WHERE Bno=100;
+
+-Yes, it shows it was successful
+
+10.What happened to the records under the STAFF relation?
+
+-It was deleted
+
+11. ALTER TABLE staff DROP FOREIGN KEY staff_branch;
+
+12. ALTER TABLE staff ADD CONSTRAINT staff_branch FOREIGN KEY (Bno)
+REFERENCES branch(Bno)
+ON DELETE NO ACTION ON UPDATE CASCADE;
+
+13. DELETE FROM branch WHERE Bno=100;
+
+-Yes, it shows it was successful
+
+14. UPDATE branch SET Bno=500 WHERE Bno=100;
+
+-Yes, it shows it was successful
+
+15. Examine the STAFF and BRANCH relations what have you observed?
+
+-The Branch is the parent table and staff was the child table. FK on staff UPDATE/DELETE was controlled by the PK on branch. You also cannot put invalid numbers on the staff's FK it will prompt an error: Cannot add or update a child row: a foreign key constraint fails.
+
+Ayaw apila ang code
